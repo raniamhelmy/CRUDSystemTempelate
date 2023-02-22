@@ -19,21 +19,8 @@ var productContainer = [];
 
 getLocalStorage();
 
-// if(localStorage.getItem('allProduct')==null){
-//   var productContainer = [];
-// }
-// else{
-//   productContainer=JSON.parse(localStorage.getItem('allProduct'))
-//   console.log(productContainer);
-//   display()
-// }
 
 function create() {
-
-  // if (elem === "Update Product"){
-  //     elem = "Add Product";  
-  //     document.getElementById("toggleButton").innerHTML=elem;
-  //    } 
 
   var product = {
     prodname: pname.value,
@@ -44,7 +31,7 @@ function create() {
 
   productContainer.push(product);
   addLocalStorage();
-  //localStorage.setItem('allProduct',JSON.stringify(productContainer))
+
   display();
   reset();
 
@@ -89,18 +76,13 @@ function display() {
 function deleteItem(index) {
   productContainer.splice(index, 1);
   deleteLocalStorage();
-  // if(productContainer.length<1){
-  //   localStorage.clear();
-  // }
-  // else{
-  //   localStorage.setItem('allProduct',JSON.stringify(productContainer));
-  // }
   
+  //display after delete
   display();
 }
 
 function myUpdate(){
-  // console.log('index is', index);
+ 
   var newData=
   {
     prodname:pname.value,
@@ -108,7 +90,7 @@ function myUpdate(){
     price:prodPrice.value,
     prodesc:desc.value,
   }
-  // console.log("eh el a5bar",newData)
+ 
   //Add The new item and delete the old one @ the same place
   productContainer.splice(gIndex, 1, newData );
 
@@ -139,81 +121,23 @@ function myUpdate(){
 
   addLocalStorage();
 
-  //return the old function to the button
-
-  // if (elem === "Update Product"){
-  //   elem = "Add Product";  
-  //   document.getElementById("toggleButton").innerHTML=elem;
-  //   document.getElementById("toggleButton").onclick=function() { create( ); };
-  //  } 
 }
 
 function UpdateItem(index) {
-  // console.log('index is', index);
-  // if (elem === "Add Product"){
-  //   elem = "Update Product";
-  //   document.getElementById("toggleButton").innerHTML=elem;
-  //   document.getElementById("toggleButton").onclick = function() { myUpdate( index ); }
-    // document.getElementById("toggleButton").innerHTML=elem;
-  //}
+  
+  //retrieve data from the Local Storaged to be updated
+    pname.value = productContainer[index].prodname;
+    prodCategory.value = productContainer[index].prodCate;
+    prodPrice.value = productContainer[index].price;
+    desc.value = productContainer[index].prodesc;
 
-    //  change();
-    // var newData=productContainer[index];
+    updateBtn.classList.remove("d-none");
+    addBtn.classList.add("d-none");
 
-    pname.value=productContainer[index].prodname;
-    prodCategory.value=productContainer[index].prodCate;
-    prodPrice.value=productContainer[index].price;
-    desc.value=productContainer[index].prodesc;
+    gIndex = index;
 
-    updateBtn.classList.remove('d-none');
-    addBtn.classList.add('d-none');
-
-    gIndex=index;
-
-    //  var newData=
-    // {
-    //   prodname:pname.value,
-    //   prodCate:prodCategory.value,
-    //   price:prodPrice.value,
-    //   prodesc:desc.value,
-    // }
-    // productContainer.splice(index, 0, newData);
-    // // // delete old one
-    // productContainer.splice(index++, 1);
-
-    // document.getElementById("toggleButton").onclick=create;
-    
- 
-    // newData.prodname= pname.value;
-    // newData.prodCate= prodCategory.value;
-    // newData.price= prodPrice.value;
-    // newData.prodesc= desc.value;
- 
-
-  // console.log(index,newData);
-
-  //Add new on the same place
-  // productContainer.splice(index, 0, newData);
-  // // // delete old one
-  // productContainer.splice(index++, 1);
-
-  // display();
 }
 
-/*function change() // no ';' here
-{
-    
-    if (elem === "Add Product"){
-      elem = "Update Product";
-      document.getElementById("toggleButton").innerHTML=elem;
-      document.getElementById("toggleButton").onclick=UpdateItem;
-      // document.getElementById("toggleButton").innerHTML=elem;
-    } 
-    // else {
-    //   elem = "Add Product";
-    // }
-   
-}*/
 
 
 function reset() {
@@ -222,7 +146,6 @@ function reset() {
   prodPrice.value = "";
   desc.value = "";
 }
-
 
 
 function searchProduct(){
@@ -273,7 +196,7 @@ if(localStorage.getItem('allProduct')==null){
 }
 else{
   productContainer=JSON.parse(localStorage.getItem('allProduct'))
-  console.log(productContainer);
+  //console.log(productContainer);
   display();
 }
 }
