@@ -378,6 +378,11 @@ desc.addEventListener("blur", function () {
   descValidation();
 });
 
+
+searchprod.addEventListener('keyup',function(){
+searchProduct()
+})
+
 //check Validation when body Updats
 documentHTML.body.addEventListener("input", function () {
   validationInput();
