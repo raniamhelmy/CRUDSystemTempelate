@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----------------------------- ToastifyJs script ------------------------------->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <!--------------------------------Style Files ------------------------------------------>
+    <link
+      rel="stylesheet"
+      href="./Assets/CSS/bootstrap.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="./Assets/CSS/style.css" type="text/css" />
+
+    <title>DB | Crud System Tempelate</title>
+
+    <!-------------------------------Browser logo------------------------------------------->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://logopond.com/logos/70a5a28358a0f80718ac4f6737f018ae.png"
+    />
+  </head>
+  <body>
+    <div class="w-75 m-auto shadow-lg p-5 my-5 bg-light">
+      <h1 class="fw-bolder text-uppercase text-center mb-4">Crud system</h1>
+      <label for="pname">Product Name:</label>
+      <input type="text" class="form-control mb-3" id="pname" />
+      <div id="prodName-alert" class="alert alert-warning d-none" role="alert"> Product Name is required* </div>
+      <label for="pcategory">Product Category:</label>
+      <input type="text" class="form-control mb-3" id="pcategory" />
+      <div id="prodCat-alert" class="alert alert-warning d-none" role="alert"> Product Category is required* </div>
+      <label for="price">Product Price:</label>
+      <input type="text" class="form-control mb-3" id="price" />
+      <div id="prodPrice-alert" class="alert alert-warning d-none" role="alert"> Product Price is required* </div>
+      <label>Product Description</label>
+      <textarea id="desc" class="form-control mb-3"> </textarea>
+      <div id="prodDesc-alert" class="alert alert-warning d-none" role="alert"> Product Description is required* </div>
+      <button
+        class="btn btn-primary w-100 d-block disabled"
+        id="addBtn"
+      >Add Product</button>
+      <button
+        class="btn btn-primary w-100 d-block d-none"
+        id="updateBtn"
+      >Update Product</button>
+      <!-- <button class="btn btn-primary" onclick="create()" id="toggleButton">Add Product</button> -->
+      <!-- <button class="btn btn-danger" onclick="reset()">rest</button> -->
+    </div>
+
+    <!-- real timee Search (the one WITHOUT BUTTON) -->
+    <input
+      placeholder="Search by Product Name..."
+      onkeyup="searchProduct()"
+      class="form-control w-50 m-auto"
+      id="searchInput"
+    />
+
+    <div>
+      <table class="table w-75 m-auto my-4 bg-light">
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>desc</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <!----------------------------- Bootstrap script ------------------------------->
+
+    <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
+
+    <!----------------------------- My script ------------------------------->
+
+    <script src="./Assets/JS/index.js"></script>
+  </body>
+</html>
